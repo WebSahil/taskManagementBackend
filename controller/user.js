@@ -162,3 +162,14 @@ usermodel.updateOne({email:req.body.email},{$set:{token:""}}).then((data,err)=>{
 
 
 module.exports = userRouter
+
+userRouter.post("/update" , (req , res)=>{
+    taskmodel.updateOne({} , {}).then((data , err)=>{
+        if(err){
+            res.json({err})
+        }
+        else{
+            res.json({message:"Data updated"})
+        }
+    })
+})
