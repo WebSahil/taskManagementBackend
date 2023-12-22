@@ -135,19 +135,14 @@ userRouter.post("/userlogin" , (req , res)=>{
         }
         else{
             if(data!==null){
-                
-               
-                
-                    
                     res.json({code:1,message:"Successfully Login" , result:data,token:rString})
-                
-            }
+                }
             else{
                 res.json({code:0,message:"User not found" , err:err})
             }
         }
     })
-    res.json({"message":"sdad"})
+    
 })
 userRouter.post("/logout",(req,res)=>{
 usermodel.updateOne({email:req.body.email},{$set:{token:""}}).then((data,err)=>{
