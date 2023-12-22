@@ -8,7 +8,7 @@ user.use("/user" , userRouter)
 require("./connection")
 
 
-user.post("/" , (req , res)=>{
+user.get("/" , (req , res)=>{
     res.json({status:"Sahil"})
 } )
 
