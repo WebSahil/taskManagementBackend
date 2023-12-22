@@ -129,24 +129,25 @@ userRouter.post("/register" , (req , res)=>{
 
 
 userRouter.post("/userlogin" , (req , res)=>{
-    usermodel.find({email:req.body.email , password:req.body.password}).then((data , err)=>{
-        if(err){
-            res.json({err})
-        }
-        else{
-            if(data.length>0){
+    // usermodel.find({email:req.body.email , password:req.body.password}).then((data , err)=>{
+    //     if(err){
+    //         res.json({err})
+    //     }
+    //     else{
+    //         if(data.length>0){
                 
-                var rString = randomString(10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-                usermodel.updateOne({email:data[0].email},{$set:{token:rString}}).then((value,err)=>{
+    //             var rString = randomString(10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    //             usermodel.updateOne({email:data[0].email},{$set:{token:rString}}).then((value,err)=>{
                     
-                    res.json({code:1,message:"Successfully Login" , result:data,token:rString})
-                })
-            }
-            else{
-                res.json({code:0,message:"User not found" , err:err})
-            }
-        }
-    })
+    //                 res.json({code:1,message:"Successfully Login" , result:data,token:rString})
+    //             })
+    //         }
+    //         else{
+    //             res.json({code:0,message:"User not found" , err:err})
+    //         }
+    //     }
+    // })
+    res.json({"message":"sdad"})
 })
 userRouter.post("/logout",(req,res)=>{
 usermodel.updateOne({email:req.body.email},{$set:{token:""}}).then((data,err)=>{
