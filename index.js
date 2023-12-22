@@ -1,11 +1,11 @@
-const cor = require("cors")
+const cors = require("cors")
 const exp = require("express")
 const userRouter = require("./controller/user")
 const user = exp()
-user.use(cor())
+user.use(cors())
 user.use(exp.json())
-user.use("/user" , userRouter)
 require("./connection")
+user.use("/user" , userRouter)
 
 
 user.get("/" , (req , res)=>{
